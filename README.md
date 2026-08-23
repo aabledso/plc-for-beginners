@@ -1,0 +1,2 @@
+# PLC for Beginners
+The goal of this project is to introduce people to the world of Programmable Logic Controllers. I aim to give them a basic understanding of ladder lgoic and maybe even some extra information about sensors and cameras used in industrial automation environments. I want my website to be interactive, so it will have a few quizzes and maybe even a few mini games to check comprehension.
