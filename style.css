@@ -93,3 +93,15 @@ main {
 .hero-button:hover {
     background-color: #0056b3;
 }
+
+/* Section Styles - What is a PLC?*/
+.what-is-a-plc {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 60px 30px;
+}
+
+.what-is-a-plc h2 {
+    font-size: 32px;
+    margin-bottom: 15px;
+}
