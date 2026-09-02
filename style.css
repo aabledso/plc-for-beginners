@@ -1,0 +1,27 @@
+*{margin:0;
+padding:0;
+box-sizing:border-box;} 
+
+body{font-family:Arial, Helvetica, sans-serif;
+background-color:#f4f6f8;
+color: #222;
+line-height:1.6;}
+
+/* Navigation Styles */
+nav{background-color:#17212b;
+color: white;
+display:flex;
+justify-content:space-between;
+align-items:center;
+padding: 18px 8%;}
+
+.logo{font: size 24px;
+font-weight:bold;
+}
+
+nav ul{list-style:none;
+display:flex;
+gap: 20px;}
+
+nav a:hover{color:#f4f6f8;
+text-decoration:underline;}
