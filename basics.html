@@ -102,6 +102,104 @@ STOP  ---|/|---+--/               ; break on stop
             <li><a href="laddder-logic.html">Ladder Logic</a> — deeper dive into ladder programming.</li>
         </ul>
     </section>
+    </section>
+
+    <section class="quiz">
+        <h2>Quick Quiz</h2>
+        <form id="basics-quiz" class="quiz-form">
+            <div class="question" data-answer="b">
+                <p>1. What does PLC stand for?</p>
+                <label><input type="radio" name="q1" value="a"> Process Logic Controller</label>
+                <label><input type="radio" name="q1" value="b"> Programmable Logic Controller</label>
+                <label><input type="radio" name="q1" value="c"> Programmed Linear Computer</label>
+            </div>
+
+            <div class="question" data-answer="a">
+                <p>2. Which scan step reads input devices?</p>
+                <label><input type="radio" name="q2" value="a"> Input Scan</label>
+                <label><input type="radio" name="q2" value="b"> CPU Scan</label>
+                <label><input type="radio" name="q2" value="c"> Output Scan</label>
+            </div>
+
+            <div class="question" data-answer="c">
+                <p>3. Which IEC standard defines PLC programming languages?</p>
+                <label><input type="radio" name="q3" value="a"> IEC 60034</label>
+                <label><input type="radio" name="q3" value="b"> ISO 9001</label>
+                <label><input type="radio" name="q3" value="c"> IEC 61131-3</label>
+            </div>
+
+            <div class="quiz-actions">
+                <button type="button" id="check-quiz">Check Answers</button>
+                <button type="button" id="reset-quiz">Reset</button>
+            </div>
+
+            <div id="quiz-result" class="quiz-result" aria-live="polite"></div>
+        </form>
+    </section>
+
+    <script>
+        (function () {
+            var checkBtn = document.getElementById('check-quiz');
+            var resetBtn = document.getElementById('reset-quiz');
+
+            function launchConfetti(count) {
+                var colors = ['#ff6b6b', '#f59e0b', '#34d399', '#60a5fa', '#a78bfa', '#f472b6'];
+                for (var i = 0; i < count; i++) {
+                    var el = document.createElement('span');
+                    el.className = 'confetti-piece';
+                    var left = Math.random() * 100;
+                    var delay = Math.random() * 0.5;
+                    var dur = 1.6 + Math.random() * 0.8;
+                    el.style.left = left + '%';
+                    el.style.background = colors[Math.floor(Math.random() * colors.length)];
+                    el.style.width = (6 + Math.random() * 10) + 'px';
+                    el.style.height = (10 + Math.random() * 14) + 'px';
+                    el.style.animationDelay = delay + 's';
+                    el.style.animationDuration = dur + 's';
+                    document.body.appendChild(el);
+                    (function (el) {
+                        setTimeout(function () { el.remove(); }, Math.round((dur + delay) * 1100));
+                    })(el);
+                }
+            }
+
+            if (checkBtn) {
+                checkBtn.addEventListener('click', function () {
+                    var form = document.getElementById('basics-quiz');
+                    var questions = form.querySelectorAll('.question');
+                    var score = 0;
+                    questions.forEach(function (q, i) {
+                        var correct = q.getAttribute('data-answer');
+                        var name = 'q' + (i + 1);
+                        var sel = form.querySelector('input[name="' + name + '"]:checked');
+                        var isCorrect = sel && sel.value === correct;
+                        if (isCorrect) score++;
+                        q.classList.toggle('correct', !!isCorrect);
+                        q.classList.toggle('incorrect', !isCorrect);
+                    });
+                    var result = document.getElementById('quiz-result');
+                    result.textContent = 'You scored ' + score + ' of ' + questions.length + '.';
+                    result.classList.remove('celebrate');
+                    if (score === questions.length) {
+                        // perfect score: celebrate
+                        launchConfetti(28);
+                        result.classList.add('celebrate');
+                    }
+                });
+            }
+            if (resetBtn) {
+                resetBtn.addEventListener('click', function () {
+                    var form = document.getElementById('basics-quiz');
+                    form.reset();
+                    form.querySelectorAll('.question').forEach(function (q) { q.classList.remove('correct', 'incorrect'); });
+                    var result = document.getElementById('quiz-result');
+                    result.textContent = '';
+                    result.classList.remove('celebrate');
+                });
+            }
+        })();
+    </script>
+
     <footer>
         <div class="footer-content">
             <h3> PLC for Beginners</h3>
