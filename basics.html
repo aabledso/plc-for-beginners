@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="style.css">
 </head>
 
-<body>
+<body class="page-basics">
     <nav>
         <ul>
             <li><a href="index.html">Home</a></li>
@@ -23,5 +23,99 @@
         processes, such as assembly lines, robotic devices, or any activity that requires high reliability and ease of
         programming.</p>
 
+    <section class="how-it-works">
+        <h2>How does a PLC work?</h2>
+        <p>A PLC operates in a continuous cycle known as the scan cycle. During each scan, the PLC reads the status of
+            all input devices, executes the user program, and updates the status of all output devices.</p>
 
+        <div class="plc-flow">
+
+            <div class="flow-box">
+                <span>1</span>
+                <h3>Input Scan</h3>
+                <p>The PLC reads the status of all input devices, such as sensors and switches, and stores this
+                    information in memory.</p>
+            </div>
+            <div class="arrow">→</div>
+
+            <div class="flow-box">
+                <span>2</span>
+                <h3>CPU</h3>
+                <p>The CPU processes the user program, making decisions based on the input data and updating the output
+                    devices accordingly.</p>
+            </div>
+            <div class="arrow">→</div>
+
+            <div class="flow-box">
+                <span>3</span>
+                <h3>Output Scan</h3>
+                <p>The PLC updates the status of all output devices, such as actuators and lights, based on the results
+                    of the program execution.</p>
+            </div>
+
+        </div>
+    </section>
+
+    <section class="components">
+        <h2>Key PLC Components</h2>
+        <ul>
+            <li><strong>CPU:</strong> The processor that executes the control program and manages communications.</li>
+            <li><strong>Power Supply:</strong> Provides the DC power required by the PLC and modules.</li>
+            <li><strong>I/O Modules:</strong> Interfaces for sensors (inputs) and actuators (outputs), available as
+                digital or analog.</li>
+            <li><strong>Communication Modules:</strong> Allow PLCs to connect to networks, HMIs, and other devices.</li>
+            <li><strong>Programming Device:</strong> A PC or handheld unit used to write, upload, and debug the PLC
+                program.</li>
+        </ul>
+    </section>
+
+    <section class="languages">
+        <h2>Common PLC Programming Languages</h2>
+        <p>PLC programming is standardized by IEC 61131-3. The most common languages are:</p>
+        <ul>
+            <li><strong>Ladder Logic (LD):</strong> Graphical, resembling electrical relay logic — widely used for
+                discrete control.</li>
+            <li><strong>Function Block Diagram (FBD):</strong> Graphical blocks representing functions and data flow.
+            </li>
+            <li><strong>Structured Text (ST):</strong> High-level textual language similar to Pascal, suitable for
+                complex algorithms.</li>
+            <li><strong>Sequential Function Chart (SFC):</strong> Used for sequencing and state-based control.</li>
+        </ul>
+    </section>
+
+    <section class="example">
+        <h2>Simple Start/Stop Motor Example (conceptual)</h2>
+        <p>This example shows the idea behind a start/stop motor control using a start pushbutton, stop pushbutton,
+            and a motor contactor coil (M).</p>
+        <pre>
+START ---| |----+-------------------( ) M  ; latch motor on start
+                |
+STOP  ---|/|---+--/               ; break on stop
+        </pre>
+        <p>In ladder logic: a maintained motor output is latched by the start button and unlatched by the stop button.
+        </p>
+    </section>
+
+    <section class="further-reading">
+        <h2>Further Reading</h2>
+        <ul>
+            <li><a href="laddder-logic.html">Ladder Logic</a> — deeper dive into ladder programming.</li>
+        </ul>
+    </section>
+    <footer>
+        <div class="footer-content">
+            <h3> PLC for Beginners</h3>
+            <p>Making PLC programming easier to understand.</p>
+
+            <div class="footer-links">
+                <a href="index.html">Home</a>
+                <a href="basics.html">PLC Basics</a>
+                <a href="laddder-logic.html">Ladder Logic</a>
+                <a href="devices.html">Devices</a>
+                <a href="applications.html">Applications</a>
+                <a href="contact.html">Contact</a>
+            </div>
+            <p class="copyright">© 2026 PLC for Beginners. All rights reserved.</p>
+        </div>
+    </footer>
 </body>

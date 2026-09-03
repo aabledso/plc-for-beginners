@@ -11,7 +11,22 @@ body {
     line-height: 1.6;
 }
 
-/* Navigation Styles */
+/* Typography scoped to basics page */
+.page-basics h1 {
+    font-size: 42px;
+    color: #0b1720;
+    margin: 18px 0;
+    line-height: 1.15;
+    letter-spacing: -0.5px;
+}
+
+.page-basics p {
+    font-size: 18px;
+    color: #333333;
+    margin: 0 0 16px;
+    line-height: 1.7;
+}
+
 nav {
     background-color: #17212b;
     color: white;
@@ -76,7 +91,6 @@ main {
 
 .hero-text {
     font-size: 19px;
-    line-height: 1.6;
     margin-bottom: 30px;
 }
 
@@ -209,4 +223,212 @@ footer {
     font-size: 14px;
     border-top: 1px solid #444;
     padding-top: 20px;
+}
+
+/*BASICS PAGE STYLES*/
+/*BASICS PLC Flow*/
+.how-it-works {
+    padding: 70px 10%;
+    text-align: center;
+}
+
+.how-it-works h2 {
+    font-size: 32px;
+    margin-bottom: 15px;
+}
+
+.how-it-works>p {
+    max-width: 700px;
+    margin: 0 auto 40px;
+    color: #555;
+}
+
+.plc-flow {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 25px;
+}
+
+.flow-box {
+    background-color: white;
+    width: 250px;
+    padding: 30px 20px;
+    border-radius: 10px;
+    border: 1px solid #ddd;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+}
+
+.flow-box span {
+    display: inline-block;
+    background-color: #1686bd;
+    color: white;
+    width: 35px;
+    height: 35px;
+    line-height: 35px;
+    border-radius: 50%;
+    margin-bottom: 15px;
+    font-weight: bold;
+}
+
+.flow-box h3 {
+    font-size: 20px;
+    margin-bottom: 10px;
+}
+
+.flow-box p {
+    color: #555;
+    font-size: 16px;
+}
+
+.arrow {
+    font-size: 35px;
+    color: #1686bd;
+}
+
+:root {
+    --bg: #f4f6f8;
+    --card: #ffffff;
+    --muted: #6b7280;
+    --accent: #1686bd;
+    --glass: rgba(23, 33, 43, 0.04);
+}
+
+/* Styles scoped to the recently added basics.html sections */
+.components,
+.languages,
+.example,
+.further-reading {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 60px 8%;
+}
+
+.components h2,
+.languages h2,
+.example h2,
+.further-reading h2 {
+    font-size: 30px;
+    margin-bottom: 18px;
+    position: relative;
+}
+
+.components h2::after,
+.languages h2::after {
+    content: "";
+    display: block;
+    width: 60px;
+    height: 4px;
+    background: linear-gradient(90deg, var(--accent), #66c2ff);
+    border-radius: 4px;
+    margin-top: 12px;
+}
+
+.components ul {
+    list-style: none;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 18px;
+}
+
+.components li {
+    background: linear-gradient(180deg, var(--card), #fbfdff);
+    padding: 18px;
+    border-radius: 12px;
+    box-shadow: 0 8px 20px rgba(14, 30, 37, 0.06);
+    border: 1px solid rgba(10, 20, 25, 0.03);
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.components li strong {
+    display: block;
+    color: var(--accent);
+    margin-bottom: 8px;
+}
+
+.components li:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 14px 30px rgba(14, 30, 37, 0.12);
+}
+
+.languages ul {
+    list-style: none;
+    display: flex;
+    gap: 12px;
+    flex-wrap: wrap;
+}
+
+.languages li {
+    background: var(--card);
+    padding: 12px 16px;
+    border-radius: 999px;
+    box-shadow: 0 6px 16px rgba(12, 22, 28, 0.06);
+    border: 1px solid rgba(10, 20, 25, 0.03);
+    color: #0f1720;
+    font-weight: 600;
+}
+
+.example p {
+    color: var(--muted);
+    margin-bottom: 12px;
+}
+
+.example pre {
+    background: linear-gradient(180deg, #07121a 0%, #09202a 100%);
+    color: #bfe9ff;
+    padding: 16px;
+    border-radius: 10px;
+    overflow: auto;
+    font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, "Courier New", monospace;
+    font-size: 14px;
+    line-height: 1.45;
+    box-shadow: 0 8px 18px rgba(3, 10, 14, 0.45) inset;
+}
+
+.further-reading ul {
+    list-style: none;
+    padding-left: 0;
+}
+
+.further-reading li {
+    margin-bottom: 8px;
+}
+
+.further-reading a {
+    color: var(--accent);
+    text-decoration: none;
+    font-weight: 600;
+}
+
+.further-reading a:hover {
+    text-decoration: underline;
+}
+
+/* Responsive adjustments only for basics content */
+@media (max-width: 820px) {
+    .plc-flow {
+        flex-direction: column;
+        gap: 18px;
+    }
+
+    .arrow {
+        display: none;
+    }
+
+    .components,
+    .languages,
+    .example,
+    .further-reading {
+        padding: 40px 6%;
+    }
+}
+
+@media (max-width: 480px) {
+
+    .components,
+    .languages,
+    .example,
+    .further-reading {
+        padding: 30px 5%;
+    }
 }
