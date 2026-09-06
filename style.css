@@ -761,7 +761,7 @@ footer {
     box-shadow: 0 2px 6px rgba(23, 255, 23, 0.9);
 }
 
-] #signalMessage {
+#signalMessage {
     margin-top: 20px;
     font-weight: bold;
 }
