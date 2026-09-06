@@ -410,34 +410,72 @@ footer {
         flex-direction: column;
         gap: 18px;
 
-/* Confetti and animation styles */
-.confetti-piece{
-    position: fixed;
-    top: -10vh;
-    pointer-events: none;
-    z-index: 9999;
-    opacity: 0.95;
-    transform-origin: center;
-    border-radius: 2px;
-    will-change: transform, opacity;
-}
+        /* Confetti and animation styles */
+        .confetti-piece {
+            position: fixed;
+            top: -10vh;
+            pointer-events: none;
+            z-index: 9999;
+            opacity: 0.95;
+            transform-origin: center;
+            border-radius: 2px;
+            will-change: transform, opacity;
+        }
 
-@keyframes confetti-fall{
-    0%{ transform: translateY(-10vh) rotate(0deg); opacity: 1 }
-    100%{ transform: translateY(110vh) rotate(520deg); opacity: 0 }
-}
-.confetti-piece{
-    animation-name: confetti-fall;
-    animation-timing-function: cubic-bezier(.2,.7,.3,1);
-}
+        @keyframes confetti-fall {
+            0% {
+                transform: translateY(-10vh) rotate(0deg);
+                opacity: 1
+            }
 
-/* celebration pulse for result */
-@keyframes celebrate-pop{ 0%{ transform: scale(1) }50%{ transform: scale(1.06) }100%{ transform: scale(1) } }
-.page-basics .quiz .quiz-result.celebrate{ animation: celebrate-pop 700ms ease; }
+            100% {
+                transform: translateY(110vh) rotate(520deg);
+                opacity: 0
+            }
+        }
 
-/* subtle glow on correct answers */
-@keyframes correct-glow{ 0%{ box-shadow: none }50%{ box-shadow: 0 14px 30px rgba(34,197,94,0.08) }100%{ box-shadow: none } }
-.page-basics .quiz .question.correct{ animation: correct-glow 900ms ease; }
+        .confetti-piece {
+            animation-name: confetti-fall;
+            animation-timing-function: cubic-bezier(.2, .7, .3, 1);
+        }
+
+        /* celebration pulse for result */
+        @keyframes celebrate-pop {
+            0% {
+                transform: scale(1)
+            }
+
+            50% {
+                transform: scale(1.06)
+            }
+
+            100% {
+                transform: scale(1)
+            }
+        }
+
+        .page-basics .quiz .quiz-result.celebrate {
+            animation: celebrate-pop 700ms ease;
+        }
+
+        /* subtle glow on correct answers */
+        @keyframes correct-glow {
+            0% {
+                box-shadow: none
+            }
+
+            50% {
+                box-shadow: 0 14px 30px rgba(34, 197, 94, 0.08)
+            }
+
+            100% {
+                box-shadow: none
+            }
+        }
+
+        .page-basics .quiz .question.correct {
+            animation: correct-glow 900ms ease;
+        }
     }
 
     .arrow {
@@ -598,4 +636,132 @@ footer {
     .page-basics .quiz h2 {
         font-size: 20px;
     }
+}
+
+/* End of basics page styles */
+
+/* STYLES FOR DEVICES PAGE */
+/*Interactive Elements*/
+
+.devices-section {
+    padding: 60px 8%;
+    text-align: center;
+}
+
+.devices-section h2 {
+    font-size: 32px;
+    margin-bottom: 10px;
+}
+
+.section-intro {
+    margin-bottom: 30px;
+}
+
+.device-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 25px;
+}
+
+.device-card {
+    padding: 30px 20px;
+    border-radius: 12px;
+    border: 2px solid #ddd;
+    transition: 0.3s;
+}
+
+.device-card:hover {
+    transform: translateY(-7px);
+}
+
+.device-card h3 {
+    margin-bottom: 10px;
+}
+
+.device-card button {
+    margin-top: 15px;
+    padding: 10px 18px;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    color: green;
+}
+
+.device-details {
+    display: none;
+    margin-top: 20px;
+    padding-top: 15px;
+    border-top: 1px solid #ccc;
+    text-align: left;
+}
+
+.device-details.show {
+    display: block;
+}
+
+.explore-button {
+    background: none;
+    border: none;
+    color: #557c45;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+.explore-button:hover {
+    text-decoration: underline;
+}
+
+/*Interactive elements - Signal Flow*/
+.signal-section {
+    text-align: center;
+    padding: 60px 8%;
+}
+
+.signal-flow {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 12px;
+    flex-wrap: wrap;
+    margin: 30px 0;
+}
+
+.signal-step {
+    padding: 15px 20px;
+    border: 20px solid #ccc;
+    border-radius: 10px;
+    transition: 0.3s;
+}
+
+.signal-step.active {
+    background-color: #dff0d8;
+    border-color: #557c45;
+    transform: scale(1.05);
+}
+
+#runSignal {
+    background-color: #557c45;
+    color: white;
+    border: none;
+    padding: 14px 32px;
+    border-radius: 8px;
+    cursor: pointer;
+    margin: 20px 0;
+    transition: 0.3s ease;
+}
+
+#runSignal:hover {
+    background-color: #3f6134;
+    transform: translateY(-2px);
+    box-shadow: 0 5px 12px rgba(0, 0, 0, 0.2);
+}
+
+#runSignal:active {
+    transform: translateY(1px);
+    box-shadow: 0 2px 6px rgba(23, 255, 23, 0.9);
+}
+
+] #signalMessage {
+    margin-top: 20px;
+    font-weight: bold;
 }

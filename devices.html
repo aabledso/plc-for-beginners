@@ -21,6 +21,158 @@
     <h1>PLC Devices</h1>
     <p>Programmable Logic Controllers (PLCs) consist of several key components that work together to control industrial
         processes.</p>
+
+    <section class="devices-section">
+        <h2>Key PLC Devices</h2>
+        <p class="section-intro">Here are the main devices that make up a typical PLC system:</p>
+
+        <div class="device-grid">
+            <div class="device-card">
+                <h3>CPU (Central Processing Unit)</h3>
+                <p>The CPU is the brain of the PLC. It processes input signals, executes the control program, and sends
+                    output signals to control devices.</p>
+                <button class="explore-button">Explore Device</button>
+
+                <div class="device-details">
+                    <p><strong>Function:</strong> Runs the control program and manages the operation of the PLC.</p>
+                    <p><strong>Real-world Example:</strong> A PLC CPU controlling a conveyor belt in a manufacturing
+                        plant.</p>
+                    <p><strong>Signal Flow:</strong> Input signals → CPU → Output signals</p>
+                </div>
+            </div>
+            <div class="device-card">
+                <h3>Input Modules</h3>
+                <p>Input modules receive signals from sensors and other input devices. They convert these signals into a
+                    form that the CPU can process.</p>
+                <button class="explore-button">Explore Device</button>
+                <div class="device-details">
+                    <p><strong>Function:</strong> Converts input signals from sensors into a format the CPU can
+                        understand.</p>
+                    <p><strong>Real-world Example:</strong> A temperature sensor sending data to the PLC to monitor a
+                        process.</p>
+                    <p><strong>Signal Flow:</strong> Sensors → Input Modules → CPU</p>
+                </div>
+            </div>
+            <div class="device-card">
+                <h3>Output Modules</h3>
+                <p>Output modules send control signals from the CPU to actuators and other output devices, enabling them
+                    to perform actions based on the control program.</p>
+                <button class="explore-button">Explore Device</button>
+                <div class="device-details">
+                    <p><strong>Function:</strong> Sends control signals from the CPU to actuators and other output
+                        devices.</p>
+                    <p><strong>Real-world Example:</strong> A PLC output module controlling a motor in a manufacturing
+                        line.</p>
+                    <p><strong>Signal Flow:</strong> CPU → Output Modules → Actuators</p>
+                </div>
+            </div>
+            <div class="device-card">
+                <h3>Power Supply</h3>
+                <p>The power supply provides the necessary electrical power for the PLC and its components to operate
+                    correctly.</p>
+                <button class="explore-button">Explore Device</button>
+                <div class="device-details">
+                    <p><strong>Function:</strong> Provides electrical power to all PLC components.</p>
+                    <p><strong>Real-world Example:</strong> A PLC power supply ensuring stable operation in an
+                        industrial environment.</p>
+                    <p><strong>Signal Flow:</strong> AC/DC Power → Power Supply → PLC Components</p>
+                </div>
+            </div>
+            <div class="device-card">
+                <h3>Communication Modules</h3>
+                <p>Communication modules enable the PLC to communicate with other PLCs, computers, and devices over
+                    networks.</p>
+                <button class="explore-button">Explore Device</button>
+                <div class="device-details">
+                    <p><strong>Function:</strong> Facilitates communication between the PLC and other devices or
+                        systems.</p>
+                    <p><strong>Real-world Example:</strong> A PLC communicating with a SCADA system for remote
+                        monitoring
+                        and control.</p>
+                    <p><strong>Signal Flow:</strong> PLC → Communication Module → Network → Other Devices</p>
+                </div>
+            </div>
+            <div class="device-card">
+                <h3>Human-Machine Interface (HMI)</h3>
+                <p>The HMI allows operators to interact with the PLC system, providing a graphical interface to
+                    monitor
+                    and control processes.</p>
+                <button class="explore-button">Explore Device</button>
+                <div class="device-details">
+                    <p><strong>Function:</strong> Provides a user-friendly interface for operators to monitor and
+                        control the PLC system.</p>
+                    <p><strong>Real-world Example:</strong> An HMI screen displaying real-time data from a
+                        production
+                        line.</p>
+                    <p><strong>Signal Flow:</strong> PLC → HMI → Operator Interaction</p>
+                </div>
+            </div>
+    </section>
+    <section class="signal-section">
+        <h2>Follow the Signal Flow</h2>
+        <p>See how a simple PLC system responds when a pushbutton is pressed.</p>
+        <div class="signal-flow">
+            <div class="signal-step" id="step1">Pushbutton</div>
+            <span>→</span>
+            <div class="signal-step" id="step2">Input Module</div>
+            <span>→</span>
+            <div class="signal-step" id="step3">CPU</div>
+            <span>→</span>
+            <div class="signal-step" id="step4">Output Module</div>
+            <span>→</span>
+            <div class="signal-step" id="step5">Motor</div>
+        </div>
+
+        <button id="runSignal">Run System</button>
+
+        <p id="signalMessage">
+            Press the "Run System" button to see how the signal flows through the PLC system when the pushbutton is
+            activated. The signal will travel from the pushbutton to the input module, then to the CPU, followed by the
+            output module, and finally to the motor, which will start running as a result of the signal flow.
+        </p>
+
+    </section>
+    <script>
+        const buttons = document.querySelectorAll('.explore-button');
+
+        buttons.forEach(button => {
+            button.addEventListener("click", function () {
+                const details = button.nextElementSibling;
+                details.classList.toggle("show");
+                if (details.classList.contains("show")) {
+                    this.textContent = "Hide Details";
+                } else {
+                    this.textContent = "Explore Device";
+                }
+            });
+        });
+    </script>
+    <script>
+        const runButton = document.getElementById("runSignal");
+        const steps = document.querySelectorAll(".signal-step");
+        const message = document.getElementById("signalMessage");
+
+        const messages = [
+            "The pushbutton is pressed.",
+            "The input module receives the signal.",
+            "The CPU processes the program logic.",
+            "The output module send the signal to the motor.",
+            "The motor starts running as a result of the signal flow."
+        ];
+
+        runButton.addEventListener("click", function () {
+            steps.forEach(step => step.classList.remove("active"));
+            message.textContent = "Running the system...";
+
+            steps.forEach((step, index) => {
+                setTimeout(() => {
+                    step.classList.add("active");
+                    message.textContent = messages[index];
+                }, index * 1000);
+            });
+        });
+
+    </script>
 </body>
 
 </html>
