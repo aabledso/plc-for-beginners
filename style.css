@@ -113,6 +113,77 @@ main {
     background-color: #0056b3;
 }
 
+.hero-plc {
+    display: flex;
+    justify-content: center;
+    align-items: right;
+}
+
+.plc-box {
+    width: 280px;
+    background: #1f2933;
+    border: 3px solid #4b5563;
+    border-radius: 12px;
+    padding: 20px;
+    color: white;
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.3);
+}
+
+.plc-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    font-weight: bold;
+    font-size: 20px;
+    margin-bottom: 20px;
+}
+
+.plc-model {
+    font-size: 12px;
+    color: #38bdf8;
+}
+
+.plc-status {
+    display: flex;
+    gap: 25px;
+    margin-bottom: 22px;
+}
+
+.plc-status div {
+    display: flex;
+    align-items: center;
+    gap: 7px;
+    font-size: 12px;
+}
+
+.status-light {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background: #6b7280;
+}
+
+.run-light {
+    background: #22c55e;
+    box-shadow: 0 0 8px #22c55e;
+}
+
+.plc-terminals {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 6px;
+}
+
+.plc-terminals span {
+    background: #111827;
+    border: 1px solid #64748b;
+    padding: 8px 3px;
+    text-align: center;
+    border-radius: 4px;
+    font-size: 12px;
+}
+
 /* Section Styles - What is a PLC?*/
 .what-is-a-plc {
     max-width: 1000px;
@@ -950,4 +1021,20 @@ footer {
 
 #nextChallenge {
     display: none;
+}
+
+/*Media Queries*/
+* {
+    box-sizing: broder-box;
+}
+
+html,
+body {
+    max-width: 100%;
+    overflow-x: hidden;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
 }
