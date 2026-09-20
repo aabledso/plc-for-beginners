@@ -116,7 +116,8 @@ main {
 .hero-plc {
     display: flex;
     justify-content: center;
-    align-items: right;
+    align-items: center;
+    gap: 30px;
 }
 
 .plc-box {
@@ -182,6 +183,80 @@ main {
     text-align: center;
     border-radius: 4px;
     font-size: 12px;
+}
+
+.hero-device {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 6px;
+}
+
+.device-icon {
+    width: 55px;
+    height: 55px;
+    border: 2px solid #64748b;
+    border-radius: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.sensor-dot {
+    width: 16px;
+    height: 16px;
+    background: #38bdf8;
+    border-radius: 50%;
+    box-shadow: 0 0 10px #38bdf8;
+}
+
+.device-name {
+    color: white;
+    font-size: 12px;
+    font-weight: bold;
+}
+
+.signal-line {
+    width: 45px;
+    height: 2px;
+    background: #38bdf8;
+    box-shadow: 0 0 6px #38bdf8;
+    position: relative;
+}
+
+.signal-line::after {
+    content: "";
+    position: absolute;
+    right: -1px;
+    top: -4px;
+    border-top: 5px solid transparent;
+    border-bottom: 5px solid transparent;
+    border-left: 7px solid #38bdf8
+}
+
+.device-type {
+    color: #94a3b8;
+    font-size: 10px;
+}
+
+.motor-icon {
+    border-radius: 50%;
+    width: 60px;
+    height: 60px;
+    position: relative;
+}
+
+.motor-symbol {
+    width: 38px;
+    height: 38px;
+    border: 2px solid #38bdf8;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-size: 16px;
+    font-weight: bold;
 }
 
 /* Section Styles - What is a PLC?*/
