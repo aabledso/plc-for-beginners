@@ -842,3 +842,112 @@ footer {
         gap: 15px;
     }
 }
+
+/*LADDEr LOGIC STYLES*/
+.ladder-intro {
+    max-width: 900px;
+    margin: 40px auto;
+    padding: 20px;
+}
+
+.ladder-example {
+    max-width: 800px auto;
+    margin: 40px auto;
+    padding: 30px;
+    border: 2px solid #ddd;
+    border-radius: 12px;
+    background-color: #f8f8f8;
+}
+
+.ladder-example h2 {
+    margin-top: 0;
+
+}
+
+.game-instructions {
+    margin-bottom: 25px;
+}
+
+.scenario {
+    padding: 20px;
+    margin-bottom: 30px;
+    background-color: white;
+    border-left: 5px solid #555;
+    border-radius: 6px;
+}
+
+.scenario h3 {
+    margin-top: 0;
+}
+
+.component-options {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+    margin-bottom: 30px;
+
+}
+
+.component-card {
+    flex: 1;
+    padding: 15px;
+    background-color: white;
+    border: 2px solid #555;
+    border-radius: 8px;
+    font-size: 12px;
+    cursor: pointer;
+    white-space: nowrap;
+}
+
+.component-card:hover {
+    background-color: #eeeeee;
+    transform: translateY(-2px);
+}
+
+.build-area {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    gap: 15px;
+    padding: 25px;
+    margin-bottom: 25px;
+    background-color: white;
+    border: 2px dashed #aaa;
+    border-radius: 8px;
+}
+
+.rung-slot {
+    width: 130px;
+    height: 65px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 2px solid #aaa;
+    border-radius: 6px;
+    font-size: 15px;
+    font-weight: bold;
+    background-color: #f8f8f8;
+}
+
+#gameFeedback {
+    margin-top: 20px;
+    padding: 12px;
+    font-weight: bold;
+    text-align: center;
+    border-radius: 6px;
+}
+
+.correct {
+    color: #176b32;
+    background-color: #e7f6ec;
+}
+
+.incorrect {
+    color: red;
+    background-color: #fdeaea;
+}
+
+#nextChallenge {
+    display: none;
+}

@@ -18,9 +18,219 @@
             <li><a href="contact.html">Contact</a></li>
         </ul>
     </nav>
-    <h1>Ladder Logic</h1>
-    <p>Ladder Logic is a programming language used to develop software for PLCs. It is called "ladder" logic because the
-        programs resemble a ladder with two vertical rails and a series of horizontal rungs between them.</p>
+
+    <section class="ladder-intro">
+        <h1>Ladder Logic</h1>
+        <p>Ladder Logic is a programming language used to develop software for PLCs. It is called "ladder" logic because
+            the
+            programs resemble a ladder with two vertical rails and a series of horizontal rungs between them.</p>
+
+        <h2>How Does Ladder Logic Work?</h2>
+        <p>Ladder logic is read from left to right and from top to bottom. Each rung represents a set of conditions
+            that
+            must be met before and output is activated.</p>
+
+        <div class="ladder-example">
+            <h2>Solve the Problem</h2>
+            <p id="challengeNumber">
+                Challenge 1 of 3
+            </p>
+            <p class="game-instructions">
+                Choose the correct components and place them in the correct order to accomplish the task.
+            </p>
+            <div class="scenario">
+                <h3>Scenario</h3>
+                <p id="scenarioText">A motor should turn on when the Start button is active and stop when the Stop
+                    button is pressed.</p>
+            </div>
+            <h3>Choose Components</h3>
+            <div class="component-options">
+                <button class="component-card" id="startCard">
+                    Start | | (NO)
+                </button>
+                <button class="component-card" id="motorCard">
+                    Motor ( ) (coil)
+                </button>
+                <button class="component-card" id="stopCard">
+                    Stop |/| (NC)
+                </button>
+                <button class="component-card" id="sensorCard">
+                    Sensor |/| (NC)
+                </button>
+                <button class="component-card" id="timerCard">
+                    TON 5s
+                </button>
+                <button class="component-card">
+                    Conveyor ( ) (coil)
+                </button>
+                <button class="component-card">
+                    Timer Done | | (NO)
+                </button>
+            </div>
+            <h3>Your Rung</h3>
+            <div class="build-area">
+                <div class="rung-slot">?</div>
+                <div class="rung-slot">?</div>
+                <div class="rung-slot">?</div>
+            </div>
+            <div class="game-buttons">
+                <button id="checkAnswer">
+                    Check Answer
+                </button>
+                <button id="resetGame">
+                    Reset
+                </button>
+                <button id="nextChallenge">
+                    Next Challenge
+                </button>
+            </div>
+            <p id="gameFeedback"></p>
+        </div>
+    </section>
+    <script>
+        const componentCards = document.querySelectorAll(".component-card");
+        let rungSlots = document.querySelectorAll(".rung-slot");
+        const checkAnswer = document.getElementById("checkAnswer");
+        const gameFeedback = document.getElementById("gameFeedback");
+        const resetGame = document.getElementById("resetGame");
+        const nextChallenge = document.getElementById("nextChallenge");
+        const challengeNumber = document.getElementById("challengeNumber");
+        const scenarioText = document.getElementById("scenarioText");
+        const buildArea = document.querySelector(".build-area");
+
+        let currentSlot = 0;
+        let currentChallenge = 1;
+
+        componentCards.forEach(function (card) {
+            card.addEventListener("click", function () {
+                if (currentSlot < rungSlots.length) {
+                    rungSlots[currentSlot].textContent = card.textContent.trim();
+
+                    currentSlot++;
+                }
+            });
+        });
+
+        checkAnswer.addEventListener("click", function () {
+            const answer1 = rungSlots[0].textContent.trim();
+            const answer2 = rungSlots[1].textContent.trim();
+            const answer3 = rungSlots[2].textContent.trim();
+            const answer4 = rungSlots[3]
+                ? rungSlots[3].textContent.trim()
+                : "";
+            const answer5 = rungSlots[4]
+                ? rungSlots[4].textContent.trim()
+                : "";
+
+            if (
+                (
+                    currentChallenge === 1 &&
+                    answer1 === "Start | | (NO)" &&
+                    answer2 === "Stop |/| (NC)" &&
+                    answer3 === "Motor ( ) (coil)"
+
+                )
+                ||
+                (
+                    currentChallenge === 2 &&
+                    answer1 === "Start | | (NO)" &&
+                    answer2 === "Sensor |/| (NC)" &&
+                    answer3 === "Stop |/| (NC)" &&
+                    answer4 === "Conveyor ( ) (coil)"
+                )
+                ||
+                (
+                    currentChallenge === 3 &&
+                    answer1 === "Start | | (NO)" &&
+                    answer2 === "Sensor |/| (NC)" &&
+                    answer3 === "TON 5s" &&
+                    answer4 === "Timer Done | | (NO)" &&
+                    answer5 === "Motor ( ) (coil)"
+                )
+            ) {
+                gameFeedback.textContent =
+                    "Correct! You built the rung in the correct order.";
+                gameFeedback.classList.remove("incorrect");
+                gameFeedback.classList.add("correct");
+                if (currentChallenge === 3) {
+                    gameFeedback.textContent =
+                        "All Challenges Complete!";
+                    nextChallenge.style.display = "none";
+                } else {
+                    nextChallenge.style.display = "inline-block";
+                }
+            } else {
+                gameFeedback.textContent =
+                    "Not quite. Check the order of your components and try again.";
+                gameFeedback.classList.remove("correct");
+                gameFeedback.classList.add("incorrect");
+                nextChallenge.style.display = "none";
+            }
+        });
+
+        resetGame.addEventListener("click", function () {
+            rungSlots.forEach(function (slot) {
+                slot.textContent = "?";
+            });
+
+            currentSlot = 0;
+            gameFeedback.textContent = "";
+            gameFeedback.classList.remove("correct", "incorrect");
+        });
+
+        nextChallenge.addEventListener("click", function () {
+            if (currentChallenge === 1) {
+                currentChallenge = 2;
+
+                challengeNumber.textContent = "Challenge 2 of 3";
+
+                scenarioText.textContent = "A conveyor should run only when the Start button is active AND the safety sensor detects that the area is clear. If the stop button is pressed, the conveyor should stop.";
+
+                buildArea.innerHTML = `
+                <div class="rung-slot">?</div>
+                <div class="rung-slot">?</div>
+                <div class="rung-slot">?</div>
+                <div class="rung-slot">?</div>
+                `;
+                rungSlots = document.querySelectorAll(".rung-slot");
+
+                currentSlot = 0;
+                gameFeedback.textContent = "";
+                gameFeedback.classList.remove("correct", "incorrect");
+
+                nextChallenge.style.display = "none";
+            }
+            else if (currentChallenge === 2) {
+                currentChallenge = 3;
+
+                challengeNumber.textContent = "Challenge 3 of 3";
+                scenarioText.textContent =
+                    "A motor should start only when the Start button is active AND the safety sensor is clear. After 5 seconds, the motor will turn on.";
+
+                buildArea.innerHTML = `
+                <div class="rung-slot"></div>
+                <div class="rung-slot"></div>
+                <div class="rung-slot"></div>
+                <div class="rung-slot"></div>
+                <div class="rung-slot"></div>
+                `;
+                rungSlots = document.querySelectorAll(".rung-slot");
+                currentSlot = 0;
+
+                rungSlots.forEach(function (slot) {
+                    slot.textContent = "?";
+                })
+
+                gameFeedback.textContent = "";
+                gameFeedback.classList.remove("correct", "incorrect");
+
+                nextChallenge.style.display = "none";
+
+
+            }
+        });
+
+    </script>
 </body>
 
 </html>
