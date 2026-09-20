@@ -165,6 +165,32 @@ main {
     background: #6b7280;
 }
 
+.io-light {
+    animation: ioCycle 5s infinite;
+}
+
+@keyframes ioCycle {
+
+    0%,
+    20%,
+    100% {
+        background: #6b7280;
+        box-shadow: none;
+    }
+
+    30%,
+    65% {
+        background: #38bdf8;
+        box-shadow: 0 0 10px #38bdf8;
+    }
+
+    75%,
+    90% {
+        background: #6b7280;
+        box-shadow: none;
+    }
+}
+
 .run-light {
     background: #22c55e;
     box-shadow: 0 0 8px #22c55e;
@@ -183,6 +209,57 @@ main {
     text-align: center;
     border-radius: 4px;
     font-size: 12px;
+}
+
+.input-terminal {
+    animation: inputTerminalCycle 5s infinite;
+}
+
+@keyframes inputTerminalCycle {
+
+    0%,
+    20%,
+    100% {
+        background: #111827;
+        box-shadow: none;
+    }
+
+    30%,
+    65% {
+        background: #075985;
+        box-shadow: 0 0 8px #38bdf8;
+    }
+
+    75%,
+    90% {
+        background: #111827;
+        box-shadow: none;
+    }
+}
+
+.output-terminal {
+    animation: outputTerminalCycle 5s infinite;
+}
+
+@keyframes outputTerminalCycle {
+
+    0%,
+    45%,
+    100% {
+        background: #111827;
+        box-shadow: none
+    }
+
+    55%,
+    80% {
+        background: #075985;
+        box-shadow: 0 0 8px #38bdf8;
+    }
+
+    90% {
+        background: #111827;
+        box-shadow: none;
+    }
 }
 
 .hero-device {
@@ -208,6 +285,28 @@ main {
     background: #38bdf8;
     border-radius: 50%;
     box-shadow: 0 0 10px #38bdf8;
+    animation: sensorCycle 5s infinite;
+}
+
+@keyframes sensorCycle {
+
+    0%,
+    100% {
+        opacity: 0.25;
+        box-shadow: none;
+    }
+
+    10%,
+    35% {
+        opacity: 1;
+        box-shadow: 0 0 15px #38bdf8;
+    }
+
+    45%,
+    90% {
+        opacity: 0.25;
+        box-shadow: none;
+    }
 }
 
 .device-name {
@@ -234,6 +333,84 @@ main {
     border-left: 7px solid #38bdf8
 }
 
+.input-signal {
+    animation: inputSignalCycle 5s infinite;
+}
+
+.input-signal::after {
+    animation: inputSignalArrowCycle 5s infinite;
+}
+
+@keyframes inputSignalCycle {
+
+    0%,
+    10%,
+    100% {
+        opacity: 0.2;
+        box-shadow: none;
+    }
+
+    20%,
+    40% {
+        opacity: 1;
+        box-shadow: 0 0 10px #38bdf8;
+    }
+
+    50%,
+    90% {
+        opacity: 0.2;
+        box-shadow: none;
+    }
+}
+
+@keyframes inputSignalArrowCycle {
+
+    0%,
+    10%,
+    100% {
+        opacity: 0.2;
+    }
+
+    20%,
+    40% {
+        opacity: 1;
+    }
+
+    50%,
+    90% {
+        opacity: 0.2;
+    }
+}
+
+.output-signal {
+    animation: outputSignalCycle 5s infinite;
+}
+
+.output-signal::after {
+    animation: outputSignalCycle 5s infinite;
+}
+
+@keyframes outputSignalCycle {
+
+    0%,
+    55%,
+    100% {
+        opacity: 0.2;
+        box-shadow: none
+    }
+
+    65%,
+    85% {
+        opacity: 1;
+        box-shadow: 0 0 10px #38bdf8;
+    }
+
+    95% {
+        opacity: 0.2;
+        box-shadow: none;
+    }
+}
+
 .device-type {
     color: #94a3b8;
     font-size: 10px;
@@ -257,6 +434,40 @@ main {
     color: white;
     font-size: 16px;
     font-weight: bold;
+    animation: motorCycle 5s infinite;
+}
+
+@keyframes motorCycle {
+
+    0%,
+    65%,
+    100% {
+        border-color: #64748b;
+        color: #94a3b8;
+        box-shadow: none;
+        transform: rotate(0deg);
+    }
+
+    75% {
+        border-color: #38bdf8;
+        color: white;
+        box-shadow: 0 0 12px #38bdf8;
+        transform: rotate(0deg);
+    }
+
+    85% {
+        border-color: #38bdf8;
+        color: white;
+        box-shadow: 0 0 12px #38bdf8;
+        transform: rotate(360deg)
+    }
+
+    95% {
+        border-color: #64748b;
+        color: #94a3b8;
+        box-shadow: none;
+        transform: rotate(360deg);
+    }
 }
 
 /* Section Styles - What is a PLC?*/
