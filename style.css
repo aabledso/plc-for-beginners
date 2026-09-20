@@ -400,7 +400,7 @@ main {
     }
 
     65%,
-    85% {
+    82% {
         opacity: 1;
         box-shadow: 0 0 10px #38bdf8;
     }
@@ -440,7 +440,7 @@ main {
 @keyframes motorCycle {
 
     0%,
-    65%,
+    75%,
     100% {
         border-color: #64748b;
         color: #94a3b8;
@@ -448,21 +448,21 @@ main {
         transform: rotate(0deg);
     }
 
-    75% {
+    82% {
         border-color: #38bdf8;
         color: white;
         box-shadow: 0 0 12px #38bdf8;
         transform: rotate(0deg);
     }
 
-    85% {
+    92% {
         border-color: #38bdf8;
         color: white;
         box-shadow: 0 0 12px #38bdf8;
         transform: rotate(360deg)
     }
 
-    95% {
+    98% {
         border-color: #64748b;
         color: #94a3b8;
         box-shadow: none;
