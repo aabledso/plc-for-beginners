@@ -18,5 +18,12 @@ In my experience, it is hard to get experience with PLCs without actually having
 
 **Other tools:** I will use Pexels to get free images.
 
+README.md:
+
+Accurately describes the current project (not the P01 version)
+Includes what changed from P01 to P02 and why
+Lists tools with justification
+Contains a working link to the deployed site
+
 ## Link to live site:
 #### View my website [here](https://aabledso.github.io/plc-for-beginners/).

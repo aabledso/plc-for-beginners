@@ -1201,6 +1201,213 @@ footer {
 }
 
 /*LADDEr LOGIC STYLES*/
+.logic-intro {
+    max-width: 800px;
+    Margin: 60px auto;
+    padding: 30px;
+}
+
+.section-label {
+    font-size: 14px;
+    font-weight: bold;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    margin-bottom: 8px;
+}
+
+.logic-intro h2 {
+    font-size: 32px;
+    margin-bottom: 15px;
+}
+
+.logic-intro p {
+    font-size: 16px;
+    line-height: 1.7;
+    margin-bottom: 12px;
+}
+
+.instructions-guide {
+    max-width: 1000px;
+    margin: 60px auto;
+    padding: 0 30px;
+}
+
+.instructions-heading {
+    margin-bottom: 25px;
+}
+
+.instructions-heading h2 {
+    font-size: 28px;
+    margin: 5px 0 10px;
+}
+
+.instructions-heading>p:last-child {
+    max-width: 650px;
+    line-height: 1.6;
+}
+
+.instruction-cards {
+    display: grid;
+    grid-template-columns: repeat (2, 1fr);
+    gap: 20px;
+}
+
+.instruction-card {
+    border: 1px solid #ddd;
+    border-radius: 12px;
+    padding: 24px;
+    background: white;
+}
+
+.instruction-symbol {
+    font-family: monospace;
+    font-size: 26px;
+    font-weight: bold;
+    margin-bottom: 12px;
+}
+
+.instruction-example {
+    margin-top: 15px;
+    padding-top: 12px;
+    border-top: 1px solid #ddd;
+}
+
+.read-rung {
+    padding: 60px 8%;
+    text-align: center;
+}
+
+.read-rung .section-label {
+    color: #66c2ff;
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    margin-bottom: 8px;
+}
+
+.read-rung h2 {
+    font-size: 32px;
+    margin-bottom: 12px;
+}
+
+.read-rung .section-intro {
+    max-width: 650px;
+    margin: 0 auto 40px;
+    color: #555;
+    line-height: 1.6;
+}
+
+.rung-demo {
+    max-width: 850px;
+    height: 180px;
+    margin: 0 auto;
+    padding: 25px 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #f8fafc;
+    border: 1px solid #e5e7eb;
+    border-radius: 16px;
+}
+
+.power-rail {
+    width: 4px;
+    height: 120px;
+    background: #1f2937;
+    border-radius: 2px;
+    flex-shrink: 0;
+}
+
+.rung-line {
+    flex: 1;
+    height: 3px;
+    background: #1f2937;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    max-width: 700px;
+}
+
+.rung-instruction {
+    background: #f8fafc;
+    padding: 8px 14px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 4px;
+}
+
+.rung-symbol {
+    font-family: monospace;
+    font-weight: 700;
+    font-size: 24px;
+    color: #1f2937;
+    white-space: nowrap;
+}
+
+.rung-name {
+    font-size: 14px;
+    font-weight: 700;
+    color: #1f2937;
+}
+
+.rung-type {
+    font-size: 11px;
+    font-weight: 600;
+    color: #6b7280;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.rung-explantion {
+    max-width: 650px;
+    margin: 25px auto 0;
+    text-align: center;
+}
+
+.rung-explanation p {
+    color: #555;
+    font-size: 15px;
+    line-height: 1.6;
+    margin: 0;
+}
+
+.evaluate-button {
+    margin-top: 25px;
+    padding: 12px 24px;
+    background: #66c2ff;
+    color: #fff;
+    border: none;
+    border-radius: 6px;
+    font-size: 15px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: 0.2s ease;
+}
+
+.evaluate-button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 5px 12px rgba(0, 0, 0, 0.15);
+}
+
+.rung-instruction.active {
+    color: #66c2ff;
+}
+
+.rung-instruction.active .rung-symbol,
+.rung-instruction.active .rung-name,
+.rung-instruction.active .rung-type {
+    color: #66c2ff;
+}
+
+.rung-status {
+    margin-top: 18px;
+    font-size: 14px;
+    font-weight: 600;
+    color: #6b7280;
+    min-height: 22px;
+}
+
 .ladder-intro {
     max-width: 900px;
     margin: 40px auto;
@@ -1323,4 +1530,69 @@ body {
 img {
     max-width: 100%;
     height: auto;
+}
+
+@media (max-width: 600px) {
+    .hero {
+        display: flex;
+        flex-direction: column;
+        padding: 45px 20px;
+        overflow: hidden;
+    }
+
+    .hero-content {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 35px;
+    }
+
+    .hero-text {
+        width: 100%;
+    }
+
+    .hero-plc {
+        width: 100%;
+        margin-top: 30px;
+        justify-content: center;
+        transform: scale(0.55);
+        transform-origin: center top;
+    }
+
+    .card-container {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+
+    .card {
+        width: 100%;
+    }
+
+    .device-grid {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+
+    .card {
+        width: 100%;
+    }
+
+    .nav ul {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        padding: 0;
+        margin: 0;
+    }
+
+    .nav li {
+        text-align: center;
+    }
+
+    .logo {
+        text-align: center;
+    }
 }

@@ -18,17 +18,119 @@
             <li><a href="contact.html">Contact</a></li>
         </ul>
     </nav>
+    <section class="logic-intro">
+        <p class="section-label">Ladder Logic Fundamentals</p>
+        <h2>How Ladder Logic Works</h2>
+        <p>
+            Ladder logic is made up of horizontal lines called <strong>rungs</strong>. Each rung contains conditions
+            that determine when an output is able to be energized.
+        </p>
+        <p>
+            The PLC evaluates each rung from <strong>left to right</strong> and them moves down to the next rung.
+        </p>
+    </section>
+    <section class="instructions-guide">
+        <div class="instructions-heading">
+            <p class="section-label">The Building Blocks</p>
+            <h2>Know Your Instructions</h2>
+            <p>
+                Ladder logic uses different instructions to represent inputs, conditions, and outputs. Here are the ones
+                you need to know.
+            </p>
+        </div>
+        <div class="instruction-cards">
+            <div class="instruction-card">
+                <div class="instruction-symbol">-| |-</div>
+                <h3>Normally Open</h3>
+                <p class="instruction-type">NO Contact</p>
+                <p>
+                    A normally open contact becomes true when its associated input is active.
+                </p>
+                <p class="instruction-example">
+                    <strong>Example:</strong> Start button
+                </p>
+            </div>
+            <div class="instruction-card">
+                <div class="instruction-symbol">-|/|-</div>
+                <h3>Normally Closed</h3>
+                <p class="instruction-type">NC Contact</p>
+                <p>
+                    A normally closed contact is true when its associated input is not active. When the associated input
+                    becomes active, the contact will become false.
+                </p>
+                <p class="instruction-example">
+                    <strong>Example:</strong> Stop button
+                </p>
+            </div>
+            <div class="instruction-card">
+                <div class="instruction-symbol">-( )-</div>
+                <h3>Output Coil</h3>
+                <p class="instruction-type">Output</p>
+                <p>
+                    An output coil turns on when all of the conditions before it on the rung are true.
+                </p>
+                <p class="instruction-example">
+                    <strong>Example:</strong> Motor
+                </p>
+            </div>
+            <div class="instruction-card">
+                <div class="instruction-symbol">TON</div>
+                <h3>On-Delay Timer</h3>
+                <p class="instruction-type">Timer</p>
+                <p>
+                    A TON timer begins counting when the conditions before it are true. After reaching its preset time,
+                    its done bit becomes true.
+                </p>
+                <p class="instruction-example">
+                    <strong>Example:</strong> TON 5 seconds
+                </p>
+            </div>
+        </div>
+    </section>
+    <section class="read-rung">
+        <p class="section-label">Putting Everything Together</p>
+        <h2>Read a Rung</h2>
+        <p class="section-intro">
+            A ladder logic rung is read from left to right. The conditions on the left determine whether the output on
+            the right will be energized.
+        </p>
+        <div class="rung-demo">
+            <div class="power-rail"></div>
+            <div class="rung-line">
+                <div class="rung-instruction">
+                    <span class="rung-name">Stop</span>
+                    <span class="rung-symbol">-|/|-</span>
+                    <span class="rung-type">NC</span>
+                </div>
+                <div class="rung-instruction">
+                    <span class="rung-name">Start</span>
+                    <span class="rung-symbol">-| |-</span>
+                    <span class="rung-type">NO</span>
+                </div>
+                <div class="rung-instruction">
+                    <span class="rung-name">Motor</span>
+                    <span class="rung-symbol">-( )-</span>
+                    <span class="rung-type">Output Coil</span>
+                </div>
+            </div>
+            <div class="power-rail" </div>
+            </div>
+            <div class="rung-explanation">
+                <p>
+                    The PLC checks each instruction from left to right. If the <strong>Stop</strong> condition is safe
+                    and the <strong>Start button</strong> is pressed, the rung becomes true and the <strong>Motor
+                        output</strong> energizes.
+                </p>
+            </div>
+            <button class="evaluate-button" id="evaluateRung">
+                Evaluate Rung
+            </button>
+            <p class="rung-status" id="rungStatus">
+                Click "Evaluate Rung" to see how the PLC scans the logic.
+            </p>
+    </section>
 
     <section class="ladder-intro">
-        <h1>Ladder Logic</h1>
-        <p>Ladder Logic is a programming language used to develop software for PLCs. It is called "ladder" logic because
-            the
-            programs resemble a ladder with two vertical rails and a series of horizontal rungs between them.</p>
-
-        <h2>How Does Ladder Logic Work?</h2>
-        <p>Ladder logic is read from left to right and from top to bottom. Each rung represents a set of conditions
-            that
-            must be met before and output is activated.</p>
 
         <div class="ladder-example">
             <h2>Solve the Problem</h2>
@@ -228,6 +330,27 @@
 
 
             }
+        });
+        const evaluateButton = document.getElementById("evaluateRung");
+        const rungInstructions = document.querySelectorAll(".rung-instruction");
+        const rungStatus = document.getElementById("rungStatus");
+
+        evaluateButton.addEventListener("click", function () {
+            rungInstructions.forEach(function (instruction) {
+                instruction.classList.remove("active");
+            });
+            rungInstructions[0].classList.add("active");
+            rungStatus.textContent = "Step 1: Check the stop condition. The NC contact allows logic to continue when the stop button is not pressed."
+            setTimeout(function () {
+                rungInstructions[1].classList.add("active");
+                rungStatus.textContent = "Step 2: Check the Start condition. When the NO contact is true, logic can continue toward the output.";
+            }, 5000);
+            setTimeout(function () {
+                rungInstructions[2].classList.add("active");
+                rungStatus.textContent = "Rung TRUE: All conditions are satisfied, so the PLC energizes the Motor output."
+            }, 10500);
+
+
         });
 
     </script>
