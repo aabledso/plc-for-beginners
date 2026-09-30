@@ -1810,24 +1810,122 @@ img {
         width: 100%;
     }
 
-    .nav ul {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        text-align: center;
-        padding: 0;
-        margin: 0;
-    }
-
-    .nav li {
-        text-align: center;
-    }
-
     .logo {
         text-align: center;
     }
 }
 
 @media (max-width: 768px) {
-    body
+    nav {
+        padding: 15px 20px;
+    }
+
+    nav ul {
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+        flex-wrap: wrap;
+        gap: 12px 20px;
+    }
+
+    nav li {
+        margin: 0;
+    }
+
+    nav a {
+        font-size: 14px;
+    }
+
+    .read-rung {
+        padding: 40px 20px;
+    }
+
+    .read-rung .section-intro {
+        max-width: 100%;
+    }
+
+    .rung-line {
+        width: 100%;
+        flex-direction: column;
+        align-items: center;
+        gap: 20px;
+        position: static;
+        height: auto;
+    }
+
+    .rung-instruction {
+        width: 100%;
+        text-align: center;
+    }
+
+    .rung-demo {
+        width: 100%;
+        padding: 25px 15px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 25px;
+        height: auto;
+        min-height: 0;
+    }
+
+    .rung-explanation {
+        width: 100%;
+        max-width: none;
+        text-align: left;
+        position: static;
+        margin-top: 10px;
+    }
+
+    .evaluate-button {
+        width: auto;
+        align-self: center;
+        position: static;
+        margin-top: 10px;
+    }
+
+    .power-rail {
+        display: none;
+    }
+
+    .process-flow {
+        flex-direction: column;
+        align-items: center;
+        gap: 20px;
+    }
+
+    .flow-item {
+        width: 100%;
+        max-width: 280px;
+    }
+
+    .flow-arrow {
+        transform: rotate(90deg);
+    }
+
+    .apps-grid {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+
+    .app-card {
+        width: 100%;
+    }
+
+    .conveyor-flow {
+        flex-direction: column;
+        align-items: center;
+        gap: 15px;
+    }
+
+    .conveyor-step {
+        width: 100%;
+        max-width: 280px;
+    }
+
+    .conveyor-arrow {
+        transform: rotate(90deg);
+        margin: 5px 0;
+    }
 }
