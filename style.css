@@ -1046,7 +1046,7 @@ footer {
     border: none;
     border-radius: 6px;
     cursor: pointer;
-    color: green;
+    color: #096db0;
 }
 
 .device-details {
@@ -1059,6 +1059,27 @@ footer {
 
 .device-details.show {
     display: block;
+}
+
+.device-quiz {
+    max-width: 900px;
+    margin: 60px auto;
+}
+
+
+#checkDeviceQuiz {
+    background-color: #66c2ff;
+    border: none;
+    padding: 12px 24px;
+    border-radius: 6px;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+#quizResult {
+    font-weight: 600;
+    margin-top: 12px;
+    font-size: 16px;
 }
 
 .explore-button {
@@ -1096,13 +1117,13 @@ footer {
 }
 
 .signal-step.active {
-    background-color: #dff0d8;
-    border-color: #557c45;
+    background-color: #d5ecf0;
+    border-color: #66c2ff;
     transform: scale(1.05);
 }
 
 #runSignal {
-    background-color: #557c45;
+    background-color: #096db0;
     color: white;
     border: none;
     padding: 14px 32px;
@@ -1113,7 +1134,7 @@ footer {
 }
 
 #runSignal:hover {
-    background-color: #3f6134;
+    background-color: #36b9e0;
     transform: translateY(-2px);
     box-shadow: 0 5px 12px rgba(0, 0, 0, 0.2);
 }
