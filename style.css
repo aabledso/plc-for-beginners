@@ -1203,8 +1203,8 @@ footer {
 /*LADDEr LOGIC STYLES*/
 .logic-intro {
     max-width: 800px;
-    Margin: 60px auto;
-    padding: 30px;
+    margin: 60px auto;
+    padding: 0 30px;
 }
 
 .section-label {
@@ -1408,6 +1408,8 @@ footer {
     min-height: 22px;
 }
 
+
+
 .ladder-intro {
     max-width: 900px;
     margin: 40px auto;
@@ -1514,6 +1516,154 @@ footer {
 
 #nextChallenge {
     display: none;
+}
+
+/*Applications Page*/
+.process-flow {
+    display: flex;
+    justify-content: center;
+    align-items: stretch;
+    gap: 20px;
+    margin: 40px auto;
+    max-width: 1000px;
+}
+
+.flow-item {
+    flex: 1;
+    background-color: #1e293b;
+    padding: 25px;
+    border-radius: 12px;
+    text-align: center;
+    border-top: 4px solid #66c2ff;
+}
+
+.flow-item span {
+    color: #66c2ff;
+    font-size: 14px;
+    font-weight: bold;
+}
+
+.flow-item h3 {
+    margin: 10px 0;
+    font-size: 22px;
+    color: white;
+}
+
+.flow-item p {
+    margin: 0;
+    font-size: 15px;
+    line-height: 1.5;
+    color: #d1d5db;
+}
+
+.flow-arrow {
+    display: flex;
+    align-items: center;
+    color: #66c2ff;
+    font-size: 30px;
+    font-weight: bold;
+}
+
+.apps-section {
+    padding: 60px 8%;
+}
+
+.section-heading {
+    max-width: 700px;
+    margin-bottom: 35px;
+}
+
+.section-heading h2 {
+    font-size: 32px;
+    margin: 8px 0 10px;
+}
+
+.section-heading p {
+    line-height: 1.6;
+}
+
+.apps-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+}
+
+.app-card {
+    padding: 30px;
+    border: 1px solid #d1d5db;
+    border-radius: 12px;
+    transition: transform 0.3s ease, border-color 0.3s ease;
+}
+
+.app-card:hover {
+    transform: translateY(-5px);
+    border-color: #66c2ff;
+}
+
+.card-number {
+    display: inline-block;
+    color: #66c2ff;
+    font-weight: bold;
+    margin-bottom: 12px;
+}
+
+app-card h3 {
+    margin: 0 0 10px;
+    font-size: 21px;
+}
+
+.app-card p {
+    margin: 0;
+    line-height: 1.6;
+}
+
+.example {
+    padding: 60px 8%;
+    background-color: #f5f7fa;
+}
+
+.conveyor-flow {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 15px;
+    margin-top: 35px;
+}
+
+.conveyor-step {
+    flex: 1;
+    text-align: center;
+    min-width: 0;
+}
+
+.step-icon {
+    width: 70px;
+    height: 70px;
+    margin: 0 auto 15px;
+    border: 2px solid #66c2ff;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 24px;
+    font-weight: bold;
+}
+
+.conveyor-step h3 {
+    margin: 0 0 8px;
+    font-size: 18px;
+}
+
+.conveyor-step p {
+    margin: 0;
+    font-size: 14px;
+    line-height: 1.5;
+}
+
+.conveyor-arrow {
+    color: #66c2ff;
+    font-size: 28px;
+    font-weight: bold;
 }
 
 /*Media Queries*/
