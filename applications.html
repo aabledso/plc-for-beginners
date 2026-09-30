@@ -85,6 +85,76 @@
             </div>
         </div>
     </section>
+    <section class="app-quiz">
+        <div class="section-heading">
+            <span class="section-label">Knowledge Check</span>
+            <h2>PLCs and Their Applications</h2>
+            <p>Test what you learned about common PLC applications.</p>
+        </div>
+        <div class="quiz-box">
+            <div class="quiz-question">
+                <span class="question-number">Question 1 of 3</span>
+                <h3>Which of the following situations could use a PLC?</h3>
+                <p>Select all that apply.</p>
+                <div class="answer-options">
+                    <label class="answer-choice">
+                        <input type="checkbox" name="question1" value="pump">
+                        <span>Automatically starting a pump when a tank reaches a certain level</span>
+                    </label>
+                    <label class="answer-choice">
+                        <input type="checkbox" name="question1" value="conveyor">
+                        <span>Stopping a conveyor when a sensor detects a misplaced package</span>
+                    </label>
+                    <label class="answer-choice">
+                        <input type="checkbox" name="question1" value="robot">
+                        <span>Controlling a robotic arm that positions parts during vehicle assembly</span>
+                    </label>
+                </div>
+                <button class="quiz-button" id="check-question1">Check Answer</button>
+                <p class="quiz-feedback" id="feedback1"></p>
+            </div>
+            <div class="quiz-question">
+                <span class="question-number">Question 2 of 3</span>
+                <h3>What is the role of a PLC in a packaging system?</h3>
+                <div class="answer-options">
+                    <label class="answer-choice">
+                        <input type="radio" name="question2" value="labels">
+                        <span>Designing the product labels</span>
+                    </label>
+                    <label class="answer-choice">
+                        <input type="radio" name="question2" value="machines">
+                        <span>Coordinating machines that fill, seal, sort, and package products</span>
+                    </label>
+                    <label class="answer-choice">
+                        <input type="radio" name="question2" value="shipping">
+                        <span>Scheduling when finished products are shipped</span>
+                    </label>
+                </div>
+                <button class="quiz-button" id="check-question2">Check Answer</button>
+                <p class="quiz-feedback" id="feedback2"></p>
+            </div>
+            <div class="quiz-question">
+                <span class="question-number">Question 3 of 3</span>
+                <h3>What information might a PLC monitor in a water treatment system?</h3>
+                <div class="answer-options">
+                    <label class="answer-choice">
+                        <input type="radio" name="question3" value="levels">
+                        <span>Water levels, flow, and pressure</span>
+                    </label>
+                    <label class="answer-choice">
+                        <input type="radio" name="question3" value="schedules">
+                        <span>Employee work schedules</span>
+                    </label>
+                    <label class="answer-choice">
+                        <input type="radio" name="question3" value="prices">
+                        <span>Equipment purchase prices</span>
+                    </label>
+                </div>
+                <button class="quiz-button" id="check-question3">Check Answer</button>
+                <p class="quiz-feedback" id="feedback3"></p>
+            </div>
+        </div>
+    </section>
     <section class="example">
         <div class="section-heading">
             <span class="section-label">See a PLC in Action</span>
@@ -238,6 +308,53 @@
                 });
                 nextChallenge.style.display = "none";
             }
-        })
+        });
+        const checkQuestion1 = document.getElementById("check-question1");
+
+        checkQuestion1.addEventListener("click", function () {
+            const answers = document.querySelectorAll('input[name="question1"]');
+            const feedback = document.getElementById("feedback1");
+            const allSelected = Array.from(answers).every(answer => answer.checked);
+
+            if (allSelected) {
+                feedback.textContent = "Correct! PLCs can be used in all three of these situations.";
+                feedback.className = "quiz-feedback correct";
+            } else {
+                feedback1.textContent = "Not quite. There may be more than one correct answer.";
+                feedback.className = "quiz-feedback incorrect";
+
+            }
+        });
+
+        const checkQuestion2 = document.getElementById("check-question2");
+
+        checkQuestion2.addEventListener("click", function () {
+            const selectedAnswer = document.querySelector(
+                'input[name=question2]:checked'
+            );
+            const feedback = document.getElementById("feedback2");
+            if (selectedAnswer && selectedAnswer.value === "machines") {
+                feedback.textContent = "Correct! PLCs can coordinate machines throughout the packaging process.";
+                feedback.className = "quiz-feedback correct";
+            } else {
+                feedback.textContent = "Not quite. Think about which task involves controlling automated equipment.";
+                feedback.className = "quiz-feedback incorrect";
+            }
+        });
+
+        const checkQuestion3 = document.getElementById("check-question3");
+        checkQuestion3.addEventListener("click", function () {
+            const selectedAnswer = document.querySelector(
+                'input[name="question3"]:checked'
+            );
+            const feedback = document.getElementById("feedback3");
+            if (selectedAnswer && selectedAnswer.value === "levels") {
+                feedback.textContent = "Correct! PLCs can monitor water levels, flow, and pressure.";
+                feedback.className = "quiz-feedback correct";
+            } else {
+                feedback.textContent = "Not quite. Think about what information sensors would send to the PLC.";
+                feedback.className = "quiz-feedback incorrect";
+            }
+        });
     </script>
 </body>
