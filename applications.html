@@ -22,7 +22,7 @@
             <span class="section-label">PLCs In The Real World</span>
             <h1>Applications of PLCs</h1>
             <p>
-                PlCs are used throughout modern industry to monitor equipment, make decisions, and controlautomated
+                PLCs are used throughout modern industry to monitor equipment, make decisions, and controlautomated
                 processes. Explore some of the most common places PLCs are used.
             </p>
         </div>
@@ -90,7 +90,7 @@
             <span class="section-label">See a PLC in Action</span>
             <h2>How a PLC Controls a Conveyor</h2>
             <p>
-                Imagine a box treavelling down an automated conveyor. The PLC uses information from a sensor to decide
+                Imagine a box travelling down an automated conveyor. The PLC uses information from a sensor to decide
                 when the conveyor motor should run.
             </p>
         </div>
@@ -126,4 +126,118 @@
             </div>
         </div>
     </section>
+    <section class="app-game">
+        <div class="section-heading">
+            <span class="section-label">Practice</span>
+            <h2>Choose the Right Device</h2>
+            <p>
+                Read the scenario and choose the device that wold perform the correct job in an automated system.
+            </p>
+        </div>
+        <div class="game-box">
+            <span class="challenge-number" id="challenge-number">Challenge 1 of 3</span>
+            <h3 id="game-question">A box reaches the end of a conveyor.</h3>
+            <p id="game-scenario">
+                The PLC needs to detect that the box has arrived.
+                Which device should it use?
+            </p>
+            <div class="game-choices">
+                <button class="game-choice" data-answer="sensor">
+                    Sensor
+                </button>
+                <button class="game-choice" data-answer="motor">
+                    Motor
+                </button>
+                <button class="game-choice" data-answer="valve">
+                    Valve
+                </button>
+            </div>
+            <p id="game-feedback"></p>
+            <button id="next-challenge" class="next-challenge">
+                Next Challenge →
+            </button>
+        </div>
+    </section>
+    <script>
+        const gameChoices = document.querySelectorAll(".game-choice");
+        const gameFeedback = document.getElementById("game-feedback");
+        const nextChallenge = document.getElementById("next-challenge");
+        const gameQuestion = document.getElementById("game-question");
+        const gameScenario = document.getElementById("game-scenario");
+        const challengeNumber = document.getElementById("challenge-number");
+
+        let currentChallenge = 1;
+
+        gameChoices.forEach(choice => {
+            choice.addEventListener("click", function () {
+                if (
+                    (currentChallenge === 1 && choice.dataset.answer === "sensor") ||
+                    (currentChallenge === 2 && choice.dataset.answer === "valve") ||
+                    (currentChallenge === 3 && choice.dataset.answer === "output")
+                ) {
+                    if (currentChallenge === 1) {
+                        gameFeedback.textContent =
+                            "Correct! A sensor detects when the box arrives."
+                    }
+                    else if (currentChallenge === 2) {
+                        gameFeedback.textContent =
+                            "Correct! A valve controls the flow of water."
+                    }
+                    else if (currentChallenge === 3) {
+                        gameFeedback.textContent =
+                            "Correct! Since the input and PLC command are working, the motor or output circuit should be checked next."
+                    }
+                    nextChallenge.style.display = "inline-block";
+                }
+                else {
+                    gameFeedback.textContent = "Not quite. Try again!";
+                }
+            });
+        });
+        nextChallenge.addEventListener("click", function () {
+            console.log("Next");
+            if (currentChallenge === 1) {
+                currentChallenge = 2;
+
+                challengeNumber.textContent = "Challenge 2 of 3";
+                gameQuestion.textContent =
+                    "A tank has reached its maximum level.";
+                gameScenario.textContent =
+                    "A level sensor tells the PLC that the tank is full. The PLC must stop more water from filling. Which device should the PLC control?";
+                gameFeedback.textContent = "";
+                nextChallenge.style.display = "none";
+            }
+            else if (currentChallenge === 2) {
+                currentChallenge = 3;
+                challengeNumber.textContent = "Challenge 3 of 3";
+                gameQuestion.textContent =
+                    "The PLC sees the box, but the conveyor will not move.";
+                gameScenario.textContent =
+                    "A photoelectric sensor detects a box and the PLC input turns ON. The program tells the conveyor to run, but the conveyor doesn't move. What should be checked next?";
+                gameFeedback.textContent = "";
+                nextChallenge.style.display = "none";
+                nextChallenge.textContent = "Finish Game →"
+                gameChoices[0].textContent = "Photoelectric Sensor";
+                gameChoices[0].dataset.answer = "sensor";
+
+                gameChoices[1].textContent = "PLC Input";
+                gameChoices[1].dataset.answer = "input";
+
+                gameChoices[2].textContent = "Motor / Output Circuit";
+                gameChoices[2].dataset.answer = "output";
+            }
+            else if (currentChallenge === 3) {
+                challengeNumber.textContent = "Complete";
+                gameQuestion.textContent =
+                    "Nice work! You completed the challenge.";
+                gameScenario.textContent =
+                    "You identified inputs, outputs, and used PLC signal paths to troubleshoot an automated system.";
+                gameFeedback.textContent = "";
+                gameChoices.forEach(choice => {
+                    choice.style.display = "none";
+                });
+                nextChallenge.style.display = "none";
+            }
+        })
+    </script>
 </body>

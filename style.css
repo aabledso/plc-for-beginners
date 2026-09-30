@@ -1519,6 +1519,14 @@ footer {
 }
 
 /*Applications Page*/
+.apps-hero {
+    padding: 50px 8% 30px;
+}
+
+.apps-hero-text {
+    max-width: 800px;
+}
+
 .process-flow {
     display: flex;
     justify-content: center;
@@ -1593,6 +1601,7 @@ footer {
     border: 1px solid #d1d5db;
     border-radius: 12px;
     transition: transform 0.3s ease, border-color 0.3s ease;
+    border-color: 0.3s ease;
 }
 
 .app-card:hover {
@@ -1664,6 +1673,78 @@ app-card h3 {
     color: #66c2ff;
     font-size: 28px;
     font-weight: bold;
+}
+
+/*Apps mini-game*/
+.app-game {
+    padding: 60px 8%;
+}
+
+.game-box {
+    max-width: 800px;
+    margin: 30px auto 0;
+    padding: 35px;
+    background-color: #1e293b;
+    border-radius: 14px;
+    color: white;
+}
+
+.challenge-number {
+    color: #66c2ff;
+    font-size: 13px;
+    font-weight: bold;
+    letter-spacing: 1.5px;
+}
+
+.game-box h3 {
+    font-size: 24px;
+    margin: 15px 0 8px;
+}
+
+.game-box p {
+    line-height: 1.6;
+}
+
+.game-choices {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 12px;
+    margin-top: 25px;
+}
+
+.game-choice {
+    padding: 14px;
+    border: 2px solid #66c2ff;
+    border-radius: 8px;
+    background-color: transparent;
+    color: white;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.2s ease;
+}
+
+.game-choice:hover {
+    background-color: #66c2ff;
+    color: #1e293b;
+}
+
+#game-feedback {
+    min-height: 25px;
+    margin-top: 20px;
+    font-weight: bold;
+}
+
+.next-challenge {
+    display: none;
+    margin-top: 10px;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 8px;
+    background-color: #66c2ff;
+    color: #1e293b;
+    font-weight: bold;
+    cursor: pointer;
 }
 
 /*Media Queries*/
@@ -1745,4 +1826,8 @@ img {
     .logo {
         text-align: center;
     }
+}
+
+@media (max-width: 768px) {
+    body
 }
