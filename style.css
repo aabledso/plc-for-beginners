@@ -11,6 +11,25 @@ body {
     line-height: 1.6;
 }
 
+.basics-intro {
+    max-width: 900px;
+    margin: 60px auto 20px;
+    padding: 0 20px;
+    text-align: center;
+}
+
+.basics-intro h1 {
+    margin-bottom: 15px;
+    font-size: 42px;
+}
+
+.basics-intro p {
+    max-width: 750px;
+    margin: 0 auto;
+    line-height: 1.6;
+    font-size: 18px;
+}
+
 /* Typography scoped to basics page */
 .page-basics h1 {
     font-size: 42px;
@@ -1004,6 +1023,24 @@ footer {
 
 /* STYLES FOR DEVICES PAGE */
 /*Interactive Elements*/
+.devices-intro {
+    max-width: 900px;
+    margin: 60px auto 20px;
+    padding: 0 20px;
+    text-align: center;
+}
+
+.devices-intro h1 {
+    margin-bottom: 15px;
+    font-size: 42px;
+}
+
+.devices-intro p {
+    max-width: 750px;
+    margin: 0 auto;
+    line-height: 1.6;
+    font-size: 18px;
+}
 
 .devices-section {
     padding: 60px 8%;
@@ -1326,9 +1363,10 @@ footer {
 
 /*LADDEr LOGIC STYLES*/
 .logic-intro {
-    max-width: 800px;
-    margin: 60px auto;
-    padding: 0 30px;
+    max-width: 900px;
+    margin: 60px auto 20px;
+    padding: 0 20px;
+    text-align: center;
 }
 
 .section-label {
@@ -1337,6 +1375,12 @@ footer {
     letter-spacing: 2px;
     text-transform: uppercase;
     margin-bottom: 8px;
+    text-align: center;
+}
+
+.building-label {
+    justify-content: flex-start;
+    text-align: left;
 }
 
 .logic-intro h2 {
@@ -1347,7 +1391,8 @@ footer {
 .logic-intro p {
     font-size: 16px;
     line-height: 1.7;
-    margin-bottom: 12px;
+    margin: 0 auto 12px;
+    max-width: 750px;
 }
 
 .instructions-guide {
@@ -1648,7 +1693,22 @@ footer {
 }
 
 .apps-hero-text {
-    max-width: 800px;
+    max-width: 900px;
+    margin: 60px auto 20px;
+    padding: 0 20px;
+    text-align: center;
+}
+
+.apps-hero-text h1 {
+    margin-bottom: 15px;
+    font-size: 42px;
+}
+
+.apps-hero-text p {
+    max-width: 750px;
+    margin: 0 auto;
+    font-size: 18px;
+    line-height: 1.6;
 }
 
 .process-flow {
