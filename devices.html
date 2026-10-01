@@ -184,6 +184,26 @@
         </p>
 
     </section>
+    <section class="io-game">
+        <h2>Input or Output?</h2>
+        <p>
+            Test your PLC knowledge! Decide whether each device is an input or an output.
+        </p>
+        <div class="io-card">
+            <div class="io-status">
+                <p id="io-score">Score: 0 / 12</p>
+                <p id="io-progress">Device 1 of 12</p>
+            </div>
+            <h3 id="device-name">Push Button</h3>
+            <p id="io-question">Is this device an input or an output?</p>
+            <div class="io-buttons">
+                <button id="input-btn">INPUT</button>
+                <button id="output-btn">OUTPUT</button>
+            </div>
+            <p id="io-feedback"></p>
+            <button id="restart-btn" style="display:none;">Play Again</button>
+        </div>
+    </section>
     <script>
         const buttons = document.querySelectorAll('.explore-button');
 
@@ -245,6 +265,123 @@
                 document.getElementById("quizResult").textContent = "You got " + score + " out of 3 correct!";
             }
 
+        });
+        const inputBtn = document.getElementById("input-btn");
+        const outputBtn = document.getElementById("output-btn");
+        const feedback = document.getElementById("io-feedback");
+        const restartBtn = document.getElementById("restart-btn");
+
+
+        const devices = [
+            {
+                name: "Push Button",
+                answer: "input"
+            },
+            {
+                name: "Photoelectric Sensor",
+                answer: "input"
+            },
+            {
+                name: "Motor",
+                answer: "output"
+            },
+            {
+                name: "Solenoid Valve",
+                answer: "output"
+            },
+            {
+                name: "Limit Switch",
+                answer: "input"
+            },
+            {
+                name: "Stack Light",
+                answer: "output"
+            },
+            {
+                name: "Thermocouple",
+                answer: "input"
+            },
+            {
+                name: "Pressure Transmitter",
+                answer: "input"
+            },
+            {
+                name: "VFD Run Command",
+                answer: "output"
+            },
+            {
+                name: "Encoder",
+                answer: "input"
+            },
+            {
+                name: "Contactor Coil",
+                answer: "output"
+            },
+            {
+                name: "Servo Drive Enable Command",
+                answer: "output"
+            },
+        ];
+        let currentDevice = 0;
+        let score = 0;
+        let answered = false;
+        const scoreDisplay = document.getElementById("io-score");
+        const progressDisplay = document.getElementById("io-progress");
+
+        const deviceName = document.getElementById("device-name");
+        const question = document.getElementById("io-question");
+        function showDevice() {
+            deviceName.textContent = devices[currentDevice].name;
+            progressDisplay.textContent =
+                "Device " + (currentDevice + 1) + " of " + devices.length;
+            feedback.textContent = "";
+            feedback.className = "";
+            answered = false;
+        }
+
+        function checkAnswer(choice) {
+            if (answered) {
+                return;
+            }
+            if (choice === devices[currentDevice].answer) {
+                feedback.textContent = "Correct!";
+                feedback.className = "correct";
+                answered = true;
+                score++;
+                scoreDisplay.textContent = "Score: " + score + " / " + devices.length;
+                setTimeout(function () {
+                    currentDevice++;
+                    if (currentDevice < devices.length) {
+                        showDevice();
+                    } else {
+                        deviceName.textContent = "Game Complete!";
+                        feedback.textContent = "You've identified all of the devices correctly!";
+                        question.style.display = "none";
+                        document.querySelector(".io-buttons").style.display = "none";
+                        restartBtn.style.display = "inline-block";
+                    }
+                }, 1000);
+            } else {
+                feedback.textContent = "Try Again";
+                feedback.className = "incorrect";
+            }
+        }
+
+        inputBtn.addEventListener("click", function () {
+            checkAnswer("input");
+        });
+        outputBtn.addEventListener("click", function () {
+            checkAnswer("output");
+        });
+        restartBtn.addEventListener("click", function () {
+            currentDevice = 0;
+            score = 0;
+            answered = false;
+            scoreDisplay.textContent = "Score: 0 / " + devices.length;
+            question.style.display = "block";
+            document.querySelector(".io-buttons").style.display = "flex";
+            restartBtn.style.display = "none";
+            showDevice();
         });
 
     </script>

@@ -1094,6 +1094,109 @@ footer {
     text-decoration: underline;
 }
 
+.io-game {
+    text-align: center;
+    margin: 50px auto;
+    max-width: 600px;
+}
+
+.io-game p {
+    margin-top: 10px;
+}
+
+.io-card {
+    margin: 30px auto;
+    padding: 35px;
+    max-width: 500px;
+    background-color: white;
+    border: 1px solid #d9e2e8;
+    border-top: 5px solid #66c2ff;
+    border-radius: 12px;
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.08);
+}
+
+.io-status {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    margin-bottom: 25px;
+    padding-bottom: 12px;
+    border-bottom: 1px solid #d9e2e8;
+}
+
+.io-satus p {
+    margin: 0;
+    font-size: 14px;
+    font-weight: 600;
+}
+
+.io-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin-top: 20px;
+}
+
+.io-buttons button {
+    min-width: 120px;
+    padding: 14px 24px;
+    border: 2px solid #66c2ff;
+    border-radius: 8px;
+    background-color: white;
+    font-size: 15px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+.io-buttons button:hover {
+    background-color: #66c2ff;
+    transform: translateY(-2px);
+}
+
+#device-name {
+    display: inline-block;
+    margin: 10px 0 15px;
+    padding: 12px 30px;
+    background-color: #eef8ff;
+    border: 2px solid #66c2ff;
+    border-radius: 8px;
+    font-size: 22px;
+    font-weight: 700;
+}
+
+#io-feedback {
+    min-height: 24px;
+    margin: 20px 0 0;
+    font-size: 16px;
+    font-weight: 700;
+}
+
+#restart-btn {
+    padding: 12px 24px;
+    margin-top: 15px;
+    border: none;
+    border-radius: 8px;
+    background-color: #66c2ff;
+    font-weight: 700;
+    cursor: pointer;
+}
+
+#restart-btn:hover {
+    transform: translateY(-2px);
+}
+
+.correct {
+    color: green;
+    font-weight: bold;
+}
+
+.incorrect {
+    color: red;
+    font-weight: bold;
+}
+
 /*Interactive elements - Signal Flow*/
 .signal-section {
     text-align: center;
